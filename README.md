@@ -14,8 +14,12 @@ Projetos de exemplo em Delphi demonstrando o uso dos componentes do TMS Scripter
 |[Página do TMS Scripter](https://www.tmssoftware.com/site/scriptstudiopro.asp)|[Documentação](https://doc.tmssoftware.com/biz/scripter/guide/index.html)|
 |--|--|
 
+## Cross Language Scripts
+Permite criar projetos de script em tempo de execução com múltiplos scripts multilíngues **Pascal**, **Basic** e **JavaScript**
+
 ## Cross Platform
-Support for cross platform use: Win32, Win64, macOS, iOS and Android
+Suporte para uso multiplataforma: **Win32**, **Win64**, **macOS**, **iOS** and **Android**
+
 
 ## Vídeos de demonstração
 - Em breve
