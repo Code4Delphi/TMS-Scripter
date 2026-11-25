@@ -4,6 +4,11 @@ Automatize tarefas e personalize regras de negócio sem recompilar o projeto.
 
 Projetos de exemplo em Delphi demonstrando o uso dos componentes do TMS Scripter para executar scripts em Pascal e Basic dentro da sua aplicação. Inclui links para vídeos de demonstração dos projetos.
 
+## Exemplos
+
+- [Simple](Samples/Simple/): execução de scripts e acesso aos componentes da tela.
+- [BusinessRules](Samples/BusinessRules/): regras de desconto com parâmetros, retorno, arquivos externos e depuração na IDE, sem recompilar o aplicativo.
+
 ## 🏷️ Cupom de desconto
 - Use este cupom exclusivo e tenha 30% de desconto em qualquer produto da TMS:
 ```

@@ -1,0 +1,57 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{DD895F60-06C3-4A20-805C-CB6AD7D775F0}</ProjectGuid>
+        <ProjectVersion>20.3</ProjectVersion>
+        <AppType>Console</AppType>
+        <FrameworkType>None</FrameworkType>
+        <MainSource>BusinessRules.Tests.dpr</MainSource>
+        <ProjectName>BusinessRulesTests</ProjectName>
+        <Base>True</Base>
+        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <TargetedPlatforms>3</TargetedPlatforms>
+        <ImportEnvOptions>false</ImportEnvOptions>
+        <DelphiLibraryPath>$(BDS)\lib\$(Platform)\release</DelphiLibraryPath>
+        <DelphiDebugDCUPath>$(BDS)\lib\$(Platform)\debug</DelphiDebugDCUPath>
+        <TMSScripterDir Condition="'$(TMSScripterDir)'==''">$(LOCALAPPDATA)\TMS Setup\Products\tms.biz.scripter</TMSScripterDir>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <DCC_DcuOutput>..\DCU\Tests\$(Platform)\$(Config)</DCC_DcuOutput>
+        <DCC_ExeOutput>..\Bin\$(Platform)</DCC_ExeOutput>
+        <DCC_ConsoleTarget>true</DCC_ConsoleTarget>
+        <DCC_Namespace>System;Xml;Data;Vcl;Winapi;System.Win;$(DCC_Namespace)</DCC_Namespace>
+        <DCC_UnitSearchPath>$(TMSScripterDir)\source\core;$(TMSScripterDir)\source\vcl;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UsePackage></DCC_UsePackage>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Debug'">
+        <Cfg_1>true</Cfg_1>
+        <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+        <DCC_Optimize>false</DCC_Optimize>
+        <DCC_DebugDCUs>true</DCC_DebugDCUs>
+        <DCC_IntegerOverflowCheck>true</DCC_IntegerOverflowCheck>
+        <DCC_RangeChecking>true</DCC_RangeChecking>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release'">
+        <Cfg_2>true</Cfg_2>
+        <DCC_DebugInformation>0</DCC_DebugInformation>
+    </PropertyGroup>
+    <ItemGroup>
+        <DelphiCompile Include="$(MainSource)"><MainSource>MainSource</MainSource></DelphiCompile>
+        <DCCReference Include="..\Src\BusinessRules.Calculator.pas"/>
+        <BuildConfiguration Include="Base"><Key>Base</Key></BuildConfiguration>
+        <BuildConfiguration Include="Debug"><Key>Cfg_1</Key><CfgParent>Base</CfgParent></BuildConfiguration>
+        <BuildConfiguration Include="Release"><Key>Cfg_2</Key><CfgParent>Base</CfgParent></BuildConfiguration>
+        <BusinessRuleScript Include="..\Scripts\*.psc"/>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Delphi.Personality.12</Borland.Personality>
+        <Borland.ProjectType>ConsoleApplication</Borland.ProjectType>
+        <BorlandProject><Delphi.Personality><Source><Source Name="MainSource">BusinessRules.Tests.dpr</Source></Source></Delphi.Personality><Platforms><Platform value="Win32">True</Platform><Platform value="Win64">True</Platform></Platforms></BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets"/>
+    <Target Name="CopyBusinessRuleScripts" AfterTargets="Build;Make">
+        <MakeDir Directories="$(DCC_ExeOutput)\Scripts"/>
+        <Copy SourceFiles="@(BusinessRuleScript)" DestinationFolder="$(DCC_ExeOutput)\Scripts" SkipUnchangedFiles="true"/>
+    </Target>
+</Project>
