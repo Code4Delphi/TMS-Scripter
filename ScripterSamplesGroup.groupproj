@@ -12,6 +12,9 @@
         <Projects Include="Samples\Functions\ScripterFunctions.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="Samples\ObjectParameters\ScripterObjectParameters.dproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="Samples\BusinessRules\ScripterDiscountRules.dproj">
             <Dependencies/>
         </Projects>
@@ -56,6 +59,15 @@
     <Target Name="ScripterFunctions:Make">
         <MSBuild Projects="Samples\Functions\ScripterFunctions.dproj" Targets="Make"/>
     </Target>
+    <Target Name="ScripterObjectParameters">
+        <MSBuild Projects="Samples\ObjectParameters\ScripterObjectParameters.dproj"/>
+    </Target>
+    <Target Name="ScripterObjectParameters:Clean">
+        <MSBuild Projects="Samples\ObjectParameters\ScripterObjectParameters.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ScripterObjectParameters:Make">
+        <MSBuild Projects="Samples\ObjectParameters\ScripterObjectParameters.dproj" Targets="Make"/>
+    </Target>
     <Target Name="ScripterDiscountRules:Clean">
         <MSBuild Projects="Samples\BusinessRules\ScripterDiscountRules.dproj" Targets="Clean"/>
     </Target>
@@ -72,13 +84,13 @@
         <MSBuild Projects="Samples\CustomReports\ScripterCustomReports.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="ScripterSimple;ScripterShippingCalculator;ScripterFunctions;ScripterDiscountRules;ScripterCustomReports"/>
+        <CallTarget Targets="ScripterSimple;ScripterShippingCalculator;ScripterFunctions;ScripterObjectParameters;ScripterDiscountRules;ScripterCustomReports"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="ScripterSimple:Clean;ScripterShippingCalculator:Clean;ScripterFunctions:Clean;ScripterDiscountRules:Clean;ScripterCustomReports:Clean"/>
+        <CallTarget Targets="ScripterSimple:Clean;ScripterShippingCalculator:Clean;ScripterFunctions:Clean;ScripterObjectParameters:Clean;ScripterDiscountRules:Clean;ScripterCustomReports:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="ScripterSimple:Make;ScripterShippingCalculator:Make;ScripterFunctions:Make;ScripterDiscountRules:Make;ScripterCustomReports:Make"/>
+        <CallTarget Targets="ScripterSimple:Make;ScripterShippingCalculator:Make;ScripterFunctions:Make;ScripterObjectParameters:Make;ScripterDiscountRules:Make;ScripterCustomReports:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

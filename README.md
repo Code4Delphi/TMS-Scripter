@@ -13,6 +13,7 @@ Automatize tarefas e **personalize regras de negócio** sem recompilar o projeto
 - [Simple](Samples/Simple/): execução de scripts e acesso aos componentes da tela.
 - [ShippingCalculator](Samples/ShippingCalculator/): cálculo de frete com um parâmetro, um retorno e edição da regra em memória, sem recompilar.
 - [Functions](Samples/Functions/): função com o tipo de cliente como parâmetro e retorno do percentual de desconto para um TEdit.
+- [ObjectParameters](Samples/ObjectParameters/): objeto `TClient` como parâmetro, leitura de propriedades no script e retorno do percentual de desconto.
 - [BusinessRules](Samples/BusinessRules/): regras de desconto com parâmetros, retorno, arquivos externos e depuração na IDE, sem recompilar o aplicativo.
 - [CustomReports](Samples/CustomReports/): relatório de vendas em texto com título e comissão personalizados por script, sem recompilar o aplicativo.
 
