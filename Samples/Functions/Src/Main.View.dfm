@@ -5,7 +5,9 @@ object MainView: TMainView
   Margins.Top = 0
   Margins.Right = 0
   Margins.Bottom = 0
-  Caption = 'TMS Scripter - Fun'#231#245'es com par'#226'metros e retorno'
+  Caption = 
+    'TMS Scripter - Functions with parameters and return values  / Fu' +
+    'n'#231#245'es com par'#226'metros e retorno'
   ClientHeight = 476
   ClientWidth = 733
   Color = clBtnFace
@@ -34,9 +36,9 @@ object MainView: TMainView
     object lbTypeClient: TLabel
       Left = 16
       Top = 17
-      Width = 61
+      Width = 85
       Height = 17
-      Caption = 'Type client'
+      Caption = 'Customer type'
       FocusControl = cBoxTypeClient
     end
     object lbDiscount: TLabel
@@ -92,6 +94,7 @@ object MainView: TMainView
     Caption = ' Script Pascal '
     Padding.Top = 18
     TabOrder = 1
+    ExplicitTop = 84
     object IDEMemo1: TIDEMemo
       Left = 2
       Top = 37

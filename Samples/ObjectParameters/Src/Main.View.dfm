@@ -5,7 +5,7 @@ object MainView: TMainView
   Margins.Top = 0
   Margins.Right = 0
   Margins.Bottom = 0
-  Caption = 'TMS Scripter - Objeto como par'#226'metro'
+  Caption = 'TMS Scripter - Object as parameter / Objeto como par'#226'metro'
   ClientHeight = 594
   ClientWidth = 798
   Color = clBtnFace
@@ -35,18 +35,18 @@ object MainView: TMainView
     object lbTypeClient: TLabel
       Left = 357
       Top = 24
-      Width = 86
+      Width = 85
       Height = 17
-      Caption = 'Tipo de cliente'
+      Caption = 'Customer type'
       FocusControl = cBoxTypeClient
     end
     object lbDiscount: TLabel
       Left = 176
       Top = 81
-      Width = 78
+      Width = 73
       Height = 17
       Hint = 'Percentual retornado pelo script'
-      Caption = 'Desconto (%)'
+      Caption = 'Discount (%)'
       FocusControl = edtDiscount
       ParentShowHint = False
       ShowHint = True
@@ -84,7 +84,7 @@ object MainView: TMainView
       Top = 98
       Width = 144
       Height = 29
-      Caption = 'Calcular desconto'
+      Caption = 'Calculate'
       TabOrder = 1
       OnClick = btnCalculateDiscountClick
     end
@@ -124,8 +124,6 @@ object MainView: TMainView
     Caption = ' Script Pascal '
     Padding.Top = 18
     TabOrder = 1
-    ExplicitTop = 81
-    ExplicitHeight = 479
     object IDEMemo1: TIDEMemo
       Left = 2
       Top = 37
@@ -266,7 +264,6 @@ object MainView: TMainView
       UseStyler = True
       Version = '3.9.3.0'
       WordWrap = wwNone
-      ExplicitLeft = 3
     end
   end
   object IDEScripter1: TIDEScripter

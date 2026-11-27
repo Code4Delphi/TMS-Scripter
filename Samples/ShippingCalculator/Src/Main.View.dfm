@@ -5,7 +5,7 @@ object MainView: TMainView
   Margins.Top = 0
   Margins.Right = 0
   Margins.Bottom = 0
-  Caption = 'TMS Scripter - Shipping Calculator - C'#225'lculo de frete'
+  Caption = 'TMS Scripter - Shipping Calculator / C'#225'lculo de frete'
   ClientHeight = 476
   ClientWidth = 733
   Color = clBtnFace
@@ -214,6 +214,8 @@ object MainView: TMainView
       UseStyler = True
       Version = '3.9.3.0'
       WordWrap = wwNone
+      ExplicitLeft = 4
+      ExplicitTop = 36
     end
   end
   object IDEScripter1: TIDEScripter
