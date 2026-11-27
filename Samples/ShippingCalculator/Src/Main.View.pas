@@ -30,7 +30,6 @@ type
     ScrPascalMemoStyler1: TScrPascalMemoStyler;
     Label1: TLabel;
     edtValorFrete: TEdit;
-    procedure FormCreate(Sender: TObject);
     procedure btnCalcularFreteClick(Sender: TObject);
     procedure IDEScripter1CompileError(Sender: TObject; var msg: string; row, col: Integer; var ShowException: Boolean);
   private
@@ -45,22 +44,16 @@ implementation
 
 {$R *.dfm}
 
-procedure TMainView.FormCreate(Sender: TObject);
-begin
-  FFormatSettings := TFormatSettings.Create('pt-BR');
-end;
-
 procedure TMainView.CalcularFrete;
 begin
-  var LValorCompra: Currency;
-  if not TryStrToCurr(Trim(edtValorCompra.Text), LValorCompra, FFormatSettings) then
-    raise EArgumentException.Create('Informe um valor de compra válido, como 150,00.');
+  var LValorCompra := StrToFloatDef(edtValorCompra.Text, 0);
   if LValorCompra <= 0 then
     raise EArgumentException.Create('O valor da compra deve ser maior que zero.');
 
   // O Delphi envia o valor da compra. O script decide o valor do frete.
   IDEScripter1.SourceCode := IDEMemo1.Lines;
   IDEScripter1.Compile;
+
   var LRetorno := IDEScripter1.ExecuteSubroutineAsVariant('CalcularFrete', [LValorCompra]);
   if not VarIsNumeric(LRetorno) or (VarType(LRetorno) = varBoolean) then
     raise EArgumentException.Create('CalcularFrete deve retornar um valor numérico.');

@@ -18,7 +18,6 @@ object MainView: TMainView
   Font.Style = []
   KeyPreview = True
   Position = poScreenCenter
-  OnCreate = FormCreate
   TextHeight = 17
   object pnCompra: TPanel
     Left = 0
