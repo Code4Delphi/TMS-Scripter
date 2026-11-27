@@ -53,14 +53,11 @@ begin
   if LValorCompra <= 0 then
     raise Exception.Create('Enter an amount');
 
+  IDEScripter1.AddComponent(edtValorFrete);
   IDEScripter1.SourceCode := IDEMemo1.Lines;
   IDEScripter1.Compile;
 
-  LRetorno := IDEScripter1.ExecuteSubroutineAsVariant('CalcularFrete', [LValorCompra]);
-  if not VarIsNumeric(LRetorno) or (VarType(LRetorno) = varBoolean) then
-    raise Exception.Create('CalcularFrete it should return a numeric value');
-
-  edtValorFrete.Text := FloatToStr(LRetorno);
+  IDEScripter1.ExecuteSubroutineAsVariant('CalcularFrete', [LValorCompra]);
 end;
 
 procedure TMainView.IDEScripter1CompileError(Sender: TObject; var msg: string; row, col: Integer; var ShowException: Boolean);

@@ -34,18 +34,18 @@ object MainView: TMainView
     object lbTypeClient: TLabel
       Left = 16
       Top = 17
-      Width = 86
+      Width = 61
       Height = 17
-      Caption = 'Tipo de cliente'
+      Caption = 'Type client'
       FocusControl = cBoxTypeClient
     end
     object lbDiscount: TLabel
       Left = 352
       Top = 17
-      Width = 78
+      Width = 73
       Height = 17
       Hint = 'Percentual retornado pelo script'
-      Caption = 'Desconto (%)'
+      Caption = 'Discount (%)'
       FocusControl = edtDiscount
       ParentShowHint = False
       ShowHint = True
@@ -59,7 +59,6 @@ object MainView: TMainView
       ItemIndex = 0
       TabOrder = 0
       Text = 'Normal'
-      OnChange = InputChange
       Items.Strings = (
         'Normal'
         'Vip'
@@ -70,7 +69,7 @@ object MainView: TMainView
       Top = 34
       Width = 144
       Height = 29
-      Caption = 'Calcular desconto'
+      Caption = 'Calculate Discount'
       TabOrder = 1
       OnClick = btnCalculateDiscountClick
     end
@@ -224,7 +223,6 @@ object MainView: TMainView
       UseStyler = True
       Version = '3.9.3.0'
       WordWrap = wwNone
-      OnChange = InputChange
     end
   end
   object IDEScripter1: TIDEScripter

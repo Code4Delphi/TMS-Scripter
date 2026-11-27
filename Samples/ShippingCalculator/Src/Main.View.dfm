@@ -89,9 +89,9 @@ object MainView: TMainView
     TabOrder = 1
     object IDEMemo1: TIDEMemo
       Left = 2
-      Top = 37
+      Top = 20
       Width = 729
-      Height = 356
+      Height = 373
       Cursor = crIBeam
       ActiveLineSettings.ShowActiveLine = False
       ActiveLineSettings.ShowActiveLineIndicator = False
@@ -175,12 +175,11 @@ object MainView: TMainView
       Lines.Strings = (
         'function CalcularFrete(AValorCompra);'
         'begin'
-        '  Result := 20;'
+        '  edtValorFrete.Text := '#39'20'#39';'
         ''
         '  if AValorCompra >= 200 then'
-        '    Result := 0;'
-        'end;'
-        '')
+        '    edtValorFrete.Text := '#39'0'#39';    '
+        'end;')
       MarkerList.UseDefaultMarkerImageIndex = False
       MarkerList.DefaultMarkerImageIndex = -1
       MarkerList.ImageTransparentColor = 33554432
@@ -215,6 +214,8 @@ object MainView: TMainView
       UseStyler = True
       Version = '3.9.3.0'
       WordWrap = wwNone
+      ExplicitLeft = 4
+      ExplicitTop = 19
     end
   end
   object IDEScripter1: TIDEScripter
