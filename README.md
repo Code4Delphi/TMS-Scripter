@@ -4,7 +4,7 @@ Imagine mudar o comportamento da sua aplicação sem precisar recompilar o proje
 Com o TMS Scripter, você pode executar scripts e abrir novas possibilidades para o seu sistema. É um programa dentro de um programa.
 Automatize tarefas e personalize regras de negócio sem recompilar o projeto.
 
-Projetos de exemplo em Delphi demonstrando o uso dos componentes do TMS Scripter para executar scripts em Pascal, Basic e javascript dentro da sua aplicação. Inclui links para vídeos de demonstração dos projetos.
+Projetos de exemplo em Delphi demonstrando o uso dos componentes do TMS Scripter para executar scripts em Pascal e Basic dentro da sua aplicação. Inclui links para vídeos de demonstração dos projetos.
 
 ## Exemplos
 
