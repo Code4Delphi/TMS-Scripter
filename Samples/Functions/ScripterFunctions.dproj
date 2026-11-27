@@ -1,0 +1,80 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{27B09C0A-4450-4116-8EC7-5282ABCB35D5}</ProjectGuid>
+        <ProjectVersion>20.3</ProjectVersion>
+        <FrameworkType>VCL</FrameworkType>
+        <AppType>Application</AppType>
+        <MainSource>ScripterFunctions.dpr</MainSource>
+        <ProjectName>ScripterFunctions</ProjectName>
+        <Base>True</Base>
+        <Config Condition="'$(Config)'==''">Base</Config>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <TargetedPlatforms>3</TargetedPlatforms>
+        <ImportEnvOptions>false</ImportEnvOptions>
+        <DelphiLibraryPath>$(BDS)\lib\$(Platform)\release</DelphiLibraryPath>
+        <DelphiDebugDCUPath>$(BDS)\lib\$(Platform)\debug</DelphiDebugDCUPath>
+        <TMSScripterDir Condition="'$(TMSScripterDir)'==''">$(LOCALAPPDATA)\TMS Setup\Products\tms.biz.scripter</TMSScripterDir>
+        <ProjectName Condition="'$(ProjectName)'==''">ScripterFunctions</ProjectName>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+        <Base_Win32>true</Base_Win32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Base)'=='true') or '$(Base_Win64)'!=''">
+        <Base_Win64>true</Base_Win64>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <DCC_DcuOutput>DCU\$(Platform)\$(Config)</DCC_DcuOutput>
+        <DCC_ExeOutput>Bin\$(Platform)</DCC_ExeOutput>
+        <DCC_Namespace>System;Xml;Data;Vcl;Vcl.Imaging;Winapi;System.Win;$(DCC_Namespace)</DCC_Namespace>
+        <DCC_UnitSearchPath>$(TMSScripterDir)\source\core;$(TMSScripterDir)\source\ide;$(TMSScripterDir)\source\memo;$(TMSScripterDir)\source\vcl;$(TMSScripterDir)\source\imports\rtl;$(TMSScripterDir)\source\imports\vcl;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UsePackage>;$(DCC_UsePackage)</DCC_UsePackage>
+        <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <VerInfo_Locale>1046</VerInfo_Locale>
+        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <SanitizedProjectName>ScripterFunctions</SanitizedProjectName>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <BT_BuildType>Debug</BT_BuildType>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win64)'!=''">
+        <BT_BuildType>Debug</BT_BuildType>
+    </PropertyGroup>
+    <ItemGroup>
+        <DelphiCompile Include="$(MainSource)">
+            <MainSource>MainSource</MainSource>
+        </DelphiCompile>
+        <DCCReference Include="Src\Main.View.pas">
+            <Form>MainView</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Delphi.Personality.12</Borland.Personality>
+        <Borland.ProjectType>VCLApplication</Borland.ProjectType>
+        <BorlandProject>
+            <Delphi.Personality>
+                <Source>
+                    <Source Name="MainSource">ScripterFunctions.dpr</Source>
+                </Source>
+            </Delphi.Personality>
+            <Platforms>
+                <Platform value="Win32">True</Platform>
+                <Platform value="Win64">True</Platform>
+            </Platforms>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+    <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
+</Project>
