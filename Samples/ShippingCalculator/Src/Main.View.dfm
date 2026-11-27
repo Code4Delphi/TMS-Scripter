@@ -5,7 +5,7 @@ object MainView: TMainView
   Margins.Top = 0
   Margins.Right = 0
   Margins.Bottom = 0
-  Caption = 'TMS Scripter - C'#225'lculo de frete'
+  Caption = 'TMS Scripter - Shipping Calculator - C'#225'lculo de frete'
   ClientHeight = 476
   ClientWidth = 733
   Color = clBtnFace
@@ -23,7 +23,7 @@ object MainView: TMainView
     Left = 0
     Top = 0
     Width = 733
-    Height = 100
+    Height = 81
     Margins.Left = 0
     Margins.Top = 0
     Margins.Right = 0
@@ -31,37 +31,26 @@ object MainView: TMainView
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 5
-    ExplicitTop = -3
-    DesignSize = (
-      733
-      100)
-    object lbValorCompra: TLabel
+    object lbValue: TLabel
       Left = 16
       Top = 17
-      Width = 98
+      Width = 31
       Height = 17
-      Caption = 'Valor da compra'
-      FocusControl = edtValorCompra
-    end
-    object lbInstrucao: TLabel
-      Left = 16
-      Top = 74
-      Width = 377
-      Height = 20
-      Anchors = [akLeft, akTop, akRight]
-      AutoSize = False
-      Caption = 'Edite a regra e calcule novamente, sem recompilar o aplicativo'
+      Caption = 'Value'
+      FocusControl = edtValue
     end
     object Label1: TLabel
       Left = 352
       Top = 17
       Width = 81
       Height = 17
-      Caption = 'Valor do frete'
+      Hint = 'Valor do frete'
+      Caption = 'Shipping Cost'
       FocusControl = edtValorFrete
+      ParentShowHint = False
+      ShowHint = True
     end
-    object edtValorCompra: TEdit
+    object edtValue: TEdit
       Left = 16
       Top = 36
       Width = 160
@@ -69,14 +58,14 @@ object MainView: TMainView
       TabOrder = 0
       Text = '150,00'
     end
-    object btnCalcularFrete: TButton
+    object btnCalculateShipping: TButton
       Left = 192
       Top = 34
       Width = 144
       Height = 29
-      Caption = 'Calcular frete'
+      Caption = 'Calculate shipping'
       TabOrder = 1
-      OnClick = btnCalcularFreteClick
+      OnClick = btnCalculateShippingClick
     end
     object edtValorFrete: TEdit
       Left = 352
@@ -91,19 +80,19 @@ object MainView: TMainView
   end
   object gBoxScript: TGroupBox
     Left = 0
-    Top = 100
+    Top = 81
     Width = 733
-    Height = 376
+    Height = 395
     Align = alClient
     Caption = ' Script Pascal '
     Padding.Top = 18
     TabOrder = 1
-    ExplicitTop = 98
+    ExplicitTop = 84
     object IDEMemo1: TIDEMemo
       Left = 2
-      Top = 20
+      Top = 37
       Width = 729
-      Height = 354
+      Height = 356
       Cursor = crIBeam
       ActiveLineSettings.ShowActiveLine = False
       ActiveLineSettings.ShowActiveLineIndicator = False
@@ -118,6 +107,7 @@ object MainView: TMainView
       AutoCompletion.StartToken = '(.'
       AutoCorrect.Active = True
       AutoHintParameterPosition = hpBelowCode
+      BkColor = clWindow
       BookmarkGlyph.Data = {
         36050000424D3605000000000000360400002800000010000000100000000100
         0800000000000001000000000000000000000001000000000000000000000000
@@ -161,7 +151,6 @@ object MainView: TMainView
         BFBFBFBFBFB72525FDFD9A9ABFBFBFBFBFB7BFBFB7B72525FDFDFD25BFBFBFBF
         BFBFBFBFBFB72525FDFD9A9ABFBFBFBFBFBFBFBFBFB725FDFDFDFD2525252525
         25252525252525FDFDFDFDFDFDFDFDFDFDFDFDFDFDFDFDFDFDFD}
-      BorderColor = 10724259
       BorderStyle = bsSingle
       BreakpointColor = 16762823
       BreakpointTextColor = clBlack
@@ -176,9 +165,8 @@ object MainView: TMainView
       Gutter.Font.Height = -13
       Gutter.Font.Name = 'Courier New'
       Gutter.Font.Style = []
-      Gutter.BorderColor = 10724259
-      Gutter.GutterColor = clWhite
-      Gutter.LineNumberTextColor = 3881787
+      Gutter.GutterColorTo = clBtnFace
+      Gutter.LineNumberTextColor = clWindowText
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
       Font.Height = -13
@@ -186,17 +174,17 @@ object MainView: TMainView
       Font.Style = []
       HiddenCaret = False
       Lines.Strings = (
-        'function CalcularFrete(ValorCompra);'
+        'function CalcularFrete(AValorCompra);'
         'begin'
         '  Result := 20;'
         ''
-        '  if ValorCompra >= 200 then'
+        '  if AValorCompra >= 200 then'
         '    Result := 0;'
         'end;'
         '')
       MarkerList.UseDefaultMarkerImageIndex = False
       MarkerList.DefaultMarkerImageIndex = -1
-      MarkerList.ImageTransparentColor = -1
+      MarkerList.ImageTransparentColor = 33554432
       OleDropTarget = []
       PrintOptions.MarginLeft = 0
       PrintOptions.MarginRight = 0
@@ -206,8 +194,8 @@ object MainView: TMainView
       PrintOptions.PrintLineNumbers = False
       RightMarginColor = 14869218
       ScrollHint = False
-      SelColor = clWhite
-      SelBkColor = clNavy
+      SelColor = clHighlightText
+      SelBkColor = clHighlight
       ShowRightMargin = True
       SmartTabs = False
       SyntaxStyles = ScrPascalMemoStyler1
@@ -228,8 +216,6 @@ object MainView: TMainView
       UseStyler = True
       Version = '3.9.3.0'
       WordWrap = wwNone
-      ExplicitLeft = 4
-      ExplicitTop = 21
     end
   end
   object IDEScripter1: TIDEScripter

@@ -15,26 +15,27 @@ uses
   Vcl.ExtCtrls,
   Vcl.ScripterInit,
   atScript,
-  atScripter, IDEMain, ScrMemo, ScrMps;
+  atScripter,
+  IDEMain,
+  ScrMemo,
+  ScrMps;
 
 type
   TMainView = class(TForm)
     pnCompra: TPanel;
-    lbValorCompra: TLabel;
-    edtValorCompra: TEdit;
-    btnCalcularFrete: TButton;
-    lbInstrucao: TLabel;
+    lbValue: TLabel;
+    edtValue: TEdit;
+    btnCalculateShipping: TButton;
     gBoxScript: TGroupBox;
     IDEScripter1: TIDEScripter;
     IDEMemo1: TIDEMemo;
     ScrPascalMemoStyler1: TScrPascalMemoStyler;
     Label1: TLabel;
     edtValorFrete: TEdit;
-    procedure btnCalcularFreteClick(Sender: TObject);
+    procedure btnCalculateShippingClick(Sender: TObject);
     procedure IDEScripter1CompileError(Sender: TObject; var msg: string; row, col: Integer; var ShowException: Boolean);
   private
-    FFormatSettings: TFormatSettings;
-    procedure CalcularFrete;
+
   end;
 
 var
@@ -44,48 +45,31 @@ implementation
 
 {$R *.dfm}
 
-procedure TMainView.CalcularFrete;
+procedure TMainView.btnCalculateShippingClick(Sender: TObject);
+var
+ LRetorno: Variant;
+ LValor: Double;
 begin
-  var LValorCompra := StrToFloatDef(edtValorCompra.Text, 0);
+  var LValorCompra := StrToFloatDef(edtValue.Text, 0);
   if LValorCompra <= 0 then
-    raise EArgumentException.Create('O valor da compra deve ser maior que zero.');
+    raise Exception.Create('Enter an amount');
 
-  // O Delphi envia o valor da compra. O script decide o valor do frete.
   IDEScripter1.SourceCode := IDEMemo1.Lines;
   IDEScripter1.Compile;
 
-  var LRetorno := IDEScripter1.ExecuteSubroutineAsVariant('CalcularFrete', [LValorCompra]);
+  LRetorno := IDEScripter1.ExecuteSubroutineAsVariant('CalcularFrete', [LValorCompra]);
   if not VarIsNumeric(LRetorno) or (VarType(LRetorno) = varBoolean) then
-    raise EArgumentException.Create('CalcularFrete deve retornar um valor numérico.');
+    raise Exception.Create('CalcularFrete it should return a numeric value');
 
-  var LValor: Double := LRetorno;
-  if IsNan(LValor) or IsInfinite(LValor) or (LValor < 0) then
-    raise EArgumentException.Create('O frete deve ser um valor finito maior ou igual a zero.');
-
-  var LFrete: Currency;
-  try
-    LFrete := LRetorno;
-  except
-    on E: Exception do
-      raise EArgumentException.Create('O frete ultrapassa o limite de um valor monetário.');
-  end;
-  edtValorFrete.Text := FormatFloat('#,##0.00', LFrete, FFormatSettings);
+  LValor := LRetorno;
+  edtValorFrete.Text := FloatToStr(LValor);
 end;
 
-procedure TMainView.btnCalcularFreteClick(Sender: TObject);
-begin
-  try
-    Self.CalcularFrete;
-  except
-    on E: Exception do
-      MessageDlg(E.Message, mtError, [mbOK], 0);
-  end;
-end;
 
 procedure TMainView.IDEScripter1CompileError(Sender: TObject; var msg: string; row, col: Integer; var ShowException: Boolean);
 begin
   if Row > 0 then
-    Msg := Format('Linha %d, coluna %d: %s', [Row, Col, Msg]);
+    Msg := Format('Line %d, column %d: %s', [Row, Col, Msg]);
 
   ShowException := True;
 end;
