@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{C944D5E4-22B2-4AC0-85D8-0ABA018FE4DA}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Samples\Simple\ScripterSimple.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Samples\ShippingCalculator\ScripterShippingCalculator.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Samples\BusinessRules\ScripterBusinessRules.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Samples\CustomReports\ScripterCustomReports.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ScripterSimple">
+        <MSBuild Projects="Samples\Simple\ScripterSimple.dproj"/>
+    </Target>
+    <Target Name="ScripterSimple:Clean">
+        <MSBuild Projects="Samples\Simple\ScripterSimple.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ScripterSimple:Make">
+        <MSBuild Projects="Samples\Simple\ScripterSimple.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ScripterShippingCalculator">
+        <MSBuild Projects="Samples\ShippingCalculator\ScripterShippingCalculator.dproj"/>
+    </Target>
+    <Target Name="ScripterShippingCalculator:Clean">
+        <MSBuild Projects="Samples\ShippingCalculator\ScripterShippingCalculator.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ScripterShippingCalculator:Make">
+        <MSBuild Projects="Samples\ShippingCalculator\ScripterShippingCalculator.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ScripterBusinessRules">
+        <MSBuild Projects="Samples\BusinessRules\ScripterBusinessRules.dproj"/>
+    </Target>
+    <Target Name="ScripterBusinessRules:Clean">
+        <MSBuild Projects="Samples\BusinessRules\ScripterBusinessRules.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ScripterBusinessRules:Make">
+        <MSBuild Projects="Samples\BusinessRules\ScripterBusinessRules.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ScripterCustomReports">
+        <MSBuild Projects="Samples\CustomReports\ScripterCustomReports.dproj"/>
+    </Target>
+    <Target Name="ScripterCustomReports:Clean">
+        <MSBuild Projects="Samples\CustomReports\ScripterCustomReports.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ScripterCustomReports:Make">
+        <MSBuild Projects="Samples\CustomReports\ScripterCustomReports.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ScripterSimple;ScripterShippingCalculator;ScripterBusinessRules;ScripterCustomReports"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ScripterSimple:Clean;ScripterShippingCalculator:Clean;ScripterBusinessRules:Clean;ScripterCustomReports:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ScripterSimple:Make;ScripterShippingCalculator:Make;ScripterBusinessRules:Make;ScripterCustomReports:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
