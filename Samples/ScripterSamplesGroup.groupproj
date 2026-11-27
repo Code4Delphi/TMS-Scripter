@@ -3,22 +3,22 @@
         <ProjectGuid>{C944D5E4-22B2-4AC0-85D8-0ABA018FE4DA}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="Samples\Simple\ScripterSimple.dproj">
+        <Projects Include="Simple\ScripterSimple.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Samples\BusinessRules\ScripterDiscountRules.dproj">
+        <Projects Include="BusinessRules\ScripterDiscountRules.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Samples\CustomReports\ScripterCustomReports.dproj">
+        <Projects Include="CustomReports\ScripterCustomReports.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Samples\ShippingCalculator\ScripterShippingCalculator.dproj">
+        <Projects Include="ShippingCalculator\ScripterShippingCalculator.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Samples\Functions\ScripterFunctions.dproj">
+        <Projects Include="Functions\ScripterFunctions.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Samples\ObjectParameters\ScripterObjectParameters.dproj">
+        <Projects Include="ObjectParameters\ScripterObjectParameters.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -30,58 +30,58 @@
         </BorlandProject>
     </ProjectExtensions>
     <Target Name="ScripterSimple">
-        <MSBuild Projects="Samples\Simple\ScripterSimple.dproj"/>
+        <MSBuild Projects="Simple\ScripterSimple.dproj"/>
     </Target>
     <Target Name="ScripterSimple:Clean">
-        <MSBuild Projects="Samples\Simple\ScripterSimple.dproj" Targets="Clean"/>
+        <MSBuild Projects="Simple\ScripterSimple.dproj" Targets="Clean"/>
     </Target>
     <Target Name="ScripterSimple:Make">
-        <MSBuild Projects="Samples\Simple\ScripterSimple.dproj" Targets="Make"/>
+        <MSBuild Projects="Simple\ScripterSimple.dproj" Targets="Make"/>
     </Target>
     <Target Name="ScripterDiscountRules">
-        <MSBuild Projects="Samples\BusinessRules\ScripterDiscountRules.dproj"/>
+        <MSBuild Projects="BusinessRules\ScripterDiscountRules.dproj"/>
     </Target>
     <Target Name="ScripterDiscountRules:Clean">
-        <MSBuild Projects="Samples\BusinessRules\ScripterDiscountRules.dproj" Targets="Clean"/>
+        <MSBuild Projects="BusinessRules\ScripterDiscountRules.dproj" Targets="Clean"/>
     </Target>
     <Target Name="ScripterDiscountRules:Make">
-        <MSBuild Projects="Samples\BusinessRules\ScripterDiscountRules.dproj" Targets="Make"/>
+        <MSBuild Projects="BusinessRules\ScripterDiscountRules.dproj" Targets="Make"/>
     </Target>
     <Target Name="ScripterCustomReports">
-        <MSBuild Projects="Samples\CustomReports\ScripterCustomReports.dproj"/>
+        <MSBuild Projects="CustomReports\ScripterCustomReports.dproj"/>
     </Target>
     <Target Name="ScripterCustomReports:Clean">
-        <MSBuild Projects="Samples\CustomReports\ScripterCustomReports.dproj" Targets="Clean"/>
+        <MSBuild Projects="CustomReports\ScripterCustomReports.dproj" Targets="Clean"/>
     </Target>
     <Target Name="ScripterCustomReports:Make">
-        <MSBuild Projects="Samples\CustomReports\ScripterCustomReports.dproj" Targets="Make"/>
+        <MSBuild Projects="CustomReports\ScripterCustomReports.dproj" Targets="Make"/>
     </Target>
     <Target Name="ScripterShippingCalculator">
-        <MSBuild Projects="Samples\ShippingCalculator\ScripterShippingCalculator.dproj"/>
+        <MSBuild Projects="ShippingCalculator\ScripterShippingCalculator.dproj"/>
     </Target>
     <Target Name="ScripterShippingCalculator:Clean">
-        <MSBuild Projects="Samples\ShippingCalculator\ScripterShippingCalculator.dproj" Targets="Clean"/>
+        <MSBuild Projects="ShippingCalculator\ScripterShippingCalculator.dproj" Targets="Clean"/>
     </Target>
     <Target Name="ScripterShippingCalculator:Make">
-        <MSBuild Projects="Samples\ShippingCalculator\ScripterShippingCalculator.dproj" Targets="Make"/>
+        <MSBuild Projects="ShippingCalculator\ScripterShippingCalculator.dproj" Targets="Make"/>
     </Target>
     <Target Name="ScripterFunctions">
-        <MSBuild Projects="Samples\Functions\ScripterFunctions.dproj"/>
+        <MSBuild Projects="Functions\ScripterFunctions.dproj"/>
     </Target>
     <Target Name="ScripterFunctions:Clean">
-        <MSBuild Projects="Samples\Functions\ScripterFunctions.dproj" Targets="Clean"/>
+        <MSBuild Projects="Functions\ScripterFunctions.dproj" Targets="Clean"/>
     </Target>
     <Target Name="ScripterFunctions:Make">
-        <MSBuild Projects="Samples\Functions\ScripterFunctions.dproj" Targets="Make"/>
+        <MSBuild Projects="Functions\ScripterFunctions.dproj" Targets="Make"/>
     </Target>
     <Target Name="ScripterObjectParameters">
-        <MSBuild Projects="Samples\ObjectParameters\ScripterObjectParameters.dproj"/>
+        <MSBuild Projects="ObjectParameters\ScripterObjectParameters.dproj"/>
     </Target>
     <Target Name="ScripterObjectParameters:Clean">
-        <MSBuild Projects="Samples\ObjectParameters\ScripterObjectParameters.dproj" Targets="Clean"/>
+        <MSBuild Projects="ObjectParameters\ScripterObjectParameters.dproj" Targets="Clean"/>
     </Target>
     <Target Name="ScripterObjectParameters:Make">
-        <MSBuild Projects="Samples\ObjectParameters\ScripterObjectParameters.dproj" Targets="Make"/>
+        <MSBuild Projects="ObjectParameters\ScripterObjectParameters.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
         <CallTarget Targets="ScripterSimple;ScripterDiscountRules;ScripterCustomReports;ScripterShippingCalculator;ScripterFunctions;ScripterObjectParameters"/>

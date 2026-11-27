@@ -1,4 +1,4 @@
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <ProjectGuid>{20599F54-8D1F-462D-921D-EF715E3F607D}</ProjectGuid>
         <ProjectVersion>20.3</ProjectVersion>
@@ -7,52 +7,73 @@
         <MainSource>ScripterCustomReports.dpr</MainSource>
         <ProjectName>ScripterCustomReports</ProjectName>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Config Condition="'$(Config)'==''">Base</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>3</TargetedPlatforms>
         <ImportEnvOptions>false</ImportEnvOptions>
         <DelphiLibraryPath>$(BDS)\lib\$(Platform)\release</DelphiLibraryPath>
         <DelphiDebugDCUPath>$(BDS)\lib\$(Platform)\debug</DelphiDebugDCUPath>
         <TMSScripterDir Condition="'$(TMSScripterDir)'==''">$(LOCALAPPDATA)\TMS Setup\Products\tms.biz.scripter</TMSScripterDir>
+        <ProjectName Condition="'$(ProjectName)'==''">ScripterCustomReports</ProjectName>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+        <Base_Win32>true</Base_Win32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Base)'=='true') or '$(Base_Win64)'!=''">
+        <Base_Win64>true</Base_Win64>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
         <DCC_DcuOutput>DCU\$(Platform)\$(Config)</DCC_DcuOutput>
         <DCC_ExeOutput>Bin\$(Platform)</DCC_ExeOutput>
         <DCC_Namespace>System;Xml;Data;Vcl;Vcl.Imaging;Winapi;System.Win;$(DCC_Namespace)</DCC_Namespace>
         <DCC_UnitSearchPath>$(TMSScripterDir)\source\core;$(TMSScripterDir)\source\ide;$(TMSScripterDir)\source\memo;$(TMSScripterDir)\source\vcl;$(TMSScripterDir)\source\imports\rtl;$(TMSScripterDir)\source\imports\vcl;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
-        <DCC_UsePackage></DCC_UsePackage>
+        <DCC_UsePackage>;$(DCC_UsePackage)</DCC_UsePackage>
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
         <VerInfo_Locale>1046</VerInfo_Locale>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <SanitizedProjectName>ScripterCustomReports</SanitizedProjectName>
     </PropertyGroup>
-    <PropertyGroup Condition="'$(Config)'=='Debug'">
-        <Cfg_1>true</Cfg_1>
-        <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
-        <DCC_DebugDCUs>true</DCC_DebugDCUs>
-        <DCC_Optimize>false</DCC_Optimize>
-        <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
-        <DCC_IntegerOverflowCheck>true</DCC_IntegerOverflowCheck>
-        <DCC_RangeChecking>true</DCC_RangeChecking>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <BT_BuildType>Debug</BT_BuildType>
     </PropertyGroup>
-    <PropertyGroup Condition="'$(Config)'=='Release'">
-        <Cfg_2>true</Cfg_2>
-        <DCC_DebugInformation>0</DCC_DebugInformation>
-        <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+    <PropertyGroup Condition="'$(Base_Win64)'!=''">
+        <BT_BuildType>Debug</BT_BuildType>
     </PropertyGroup>
     <ItemGroup>
-        <DelphiCompile Include="$(MainSource)"><MainSource>MainSource</MainSource></DelphiCompile>
-        <DCCReference Include="Src\Main.View.pas"><Form>MainView</Form><FormType>dfm</FormType></DCCReference>
-        <None Include="Scripts\Relatorio.psc"/>
-        <BuildConfiguration Include="Base"><Key>Base</Key></BuildConfiguration>
-        <BuildConfiguration Include="Debug"><Key>Cfg_1</Key><CfgParent>Base</CfgParent></BuildConfiguration>
-        <BuildConfiguration Include="Release"><Key>Cfg_2</Key><CfgParent>Base</CfgParent></BuildConfiguration>
+        <DelphiCompile Include="$(MainSource)">
+            <MainSource>MainSource</MainSource>
+        </DelphiCompile>
+        <DCCReference Include="Src\Main.View.pas">
+            <Form>MainView</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <ReportScript Include="Scripts\Relatorio.psc"/>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Delphi.Personality.12</Borland.Personality>
         <Borland.ProjectType>VCLApplication</Borland.ProjectType>
-        <BorlandProject><Delphi.Personality><Source><Source Name="MainSource">ScripterCustomReports.dpr</Source></Source></Delphi.Personality><Platforms><Platform value="Win32">True</Platform><Platform value="Win64">True</Platform></Platforms></BorlandProject>
+        <BorlandProject>
+            <Delphi.Personality>
+                <Source>
+                    <Source Name="MainSource">ScripterCustomReports.dpr</Source>
+                </Source>
+            </Delphi.Personality>
+            <Platforms>
+                <Platform value="Win32">True</Platform>
+                <Platform value="Win64">True</Platform>
+            </Platforms>
+        </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>
     <Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets"/>
@@ -60,4 +81,6 @@
         <MakeDir Directories="$(DCC_ExeOutput)\Scripts"/>
         <Copy SourceFiles="@(ReportScript)" DestinationFolder="$(DCC_ExeOutput)\Scripts" SkipUnchangedFiles="true"/>
     </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+    <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
 </Project>

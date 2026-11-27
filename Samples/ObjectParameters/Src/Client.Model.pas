@@ -11,7 +11,7 @@ type
     FId: Integer;
     FName: string;
     FTypeClient: string;
-  published
+  public
     property Id: Integer read FId write FId;
     property Name: string read FName write FName;
     property TypeClient: string read FTypeClient write FTypeClient;
