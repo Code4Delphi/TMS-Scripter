@@ -50,6 +50,10 @@ end;
 
 procedure TMainView.edtShowIDEClick(Sender: TObject);
 begin
+  IDEScripter1.AddComponent(Edit1);
+  IDEScripter1.AddComponent(Edit2);
+  IDEScripter1.AddComponent(Edit3);
+
   IDEDialog1.Execute;
 end;
 

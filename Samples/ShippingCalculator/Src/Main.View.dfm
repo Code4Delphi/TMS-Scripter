@@ -89,9 +89,9 @@ object MainView: TMainView
     TabOrder = 1
     object IDEMemo1: TIDEMemo
       Left = 2
-      Top = 20
+      Top = 37
       Width = 729
-      Height = 373
+      Height = 356
       Cursor = crIBeam
       ActiveLineSettings.ShowActiveLine = False
       ActiveLineSettings.ShowActiveLineIndicator = False
@@ -214,8 +214,6 @@ object MainView: TMainView
       UseStyler = True
       Version = '3.9.3.0'
       WordWrap = wwNone
-      ExplicitLeft = 4
-      ExplicitTop = 19
     end
   end
   object IDEScripter1: TIDEScripter
