@@ -1,13 +1,12 @@
 # TMS Scripter - Scripts Pascal, Basic e JavaScript no Delphi
 
-TMS Scripter é um motor de script para aplicações Delphi. Ele executa scripts dentro do seu aplicativo em tempo de execução e lhes dá acesso aos objetos, classes e funções que você escolhe expor. Também inclui um IDE que você pode incorporar no seu aplicativo, com um editor de código, um designer de formulários e um depurador, para que seus usuários possam escrever e testar seus scripts onde os usarem.
-Até agora, scripts podiam ser escritos em sintaxe Pascal ou Básica. O TMS Scripter 9.0 adiciona JavaScript.
+**TMS Scripter é um motor de script** para aplicações Delphi. Ele **executa scripts dentro do seu aplicativo** em tempo de execução e lhes **dá acesso aos objetos, classes e funções** que você escolhe expor. Também **inclui um IDE** que você pode incorporar no seu aplicativo, com um editor de código, um designer de formulários e um depurador, para que seus usuários possam escrever e testar seus scripts onde os usarem.
 
-Imagine mudar o comportamento da sua aplicação sem precisar recompilar o projeto! 
-Com o TMS Scripter, você pode executar scripts e abrir novas possibilidades para o seu sistema. É um programa dentro de um programa.
-Automatize tarefas e personalize regras de negócio sem recompilar o projeto.
+Ele suporta scripts em sintaxe **Pascal, Básica e Javascript**.
 
-Projetos de exemplo em Delphi demonstrando o uso dos componentes do TMS Scripter para executar scripts em Pascal, Basic e JavaScript dentro da sua aplicação. Inclui links para vídeos de demonstração dos projetos.
+Imagine **mudar o comportamento** da sua aplicação** sem precisar recompilar** o projeto! **É um programa dentro de um programa**.
+
+Automatize tarefas e **personalize regras de negócio** sem recompilar o projeto.
 
 ## Exemplos
 
