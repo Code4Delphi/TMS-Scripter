@@ -4,7 +4,7 @@
 
 Ele suporta scripts em sintaxe **Pascal, Básica e Javascript**.
 
-Imagine **mudar o comportamento** da sua aplicação** sem precisar recompilar** o projeto! **É um programa dentro de um programa**.
+Imagine **mudar o comportamento** da sua aplicação **sem precisar recompilar** o projeto! **É um programa dentro de um programa**.
 
 Automatize tarefas e **personalize regras de negócio** sem recompilar o projeto.
 
