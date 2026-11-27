@@ -48,7 +48,6 @@ implementation
 procedure TMainView.btnCalculateShippingClick(Sender: TObject);
 var
  LRetorno: Variant;
- LValor: Double;
 begin
   var LValorCompra := StrToFloatDef(edtValue.Text, 0);
   if LValorCompra <= 0 then
@@ -61,17 +60,13 @@ begin
   if not VarIsNumeric(LRetorno) or (VarType(LRetorno) = varBoolean) then
     raise Exception.Create('CalcularFrete it should return a numeric value');
 
-  LValor := LRetorno;
-  edtValorFrete.Text := FloatToStr(LValor);
+  edtValorFrete.Text := FloatToStr(LRetorno);
 end;
-
 
 procedure TMainView.IDEScripter1CompileError(Sender: TObject; var msg: string; row, col: Integer; var ShowException: Boolean);
 begin
   if Row > 0 then
-    Msg := Format('Line %d, column %d: %s', [Row, Col, Msg]);
-
-  ShowException := True;
+    Msg := Format('Line %d, column %d. %s', [Row, Col, Msg]);
 end;
 
 end.

@@ -1,9 +1,9 @@
-﻿program ScripterBusinessRules;
+﻿program ScripterDiscountRules;
 
 uses
   Vcl.Forms,
   Main.View in 'Src\Main.View.pas' {MainView},
-  BusinessRules.Calculator in 'Src\BusinessRules.Calculator.pas';
+  Calculator in 'Src\Calculator.pas';
 
 {$R *.res}
 

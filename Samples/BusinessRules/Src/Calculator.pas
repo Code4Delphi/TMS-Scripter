@@ -1,4 +1,4 @@
-﻿unit BusinessRules.Calculator;
+﻿unit Calculator;
 
 interface
 
@@ -22,7 +22,7 @@ type
     Total: Currency;
   end;
 
-  TBusinessRulesCalculator = class
+  TCalculator = class
   public
     class procedure ValidateOrder(const AOrder: TOrderData);
     class function Calculate(AScripter: TatCustomScripter; ASource: TStrings;
@@ -32,7 +32,7 @@ type
 
 implementation
 
-class procedure TBusinessRulesCalculator.ValidateOrder(const AOrder: TOrderData);
+class procedure TCalculator.ValidateOrder(const AOrder: TOrderData);
 begin
   if (AOrder.Value <= 0) or (RoundTo(AOrder.Value, -2) <= 0) then
     raise EArgumentException.Create('Informe um valor de pedido maior que zero.');
@@ -40,7 +40,7 @@ begin
     raise EArgumentException.Create('Informe uma quantidade inteira maior que zero.');
 end;
 
-class function TBusinessRulesCalculator.Calculate(AScripter: TatCustomScripter;
+class function TCalculator.Calculate(AScripter: TatCustomScripter;
   ASource: TStrings; const AOrder: TOrderData): TDiscountResult;
 begin
   Self.ValidateOrder(AOrder);
@@ -64,7 +64,7 @@ begin
   Result.Total := LOrderValue - Result.Discount;
 end;
 
-class function TBusinessRulesCalculator.DebugSource(const AOrder: TOrderData): string;
+class function TCalculator.DebugSource(const AOrder: TOrderData): string;
 begin
   Self.ValidateOrder(AOrder);
   var LVIP := 'False';

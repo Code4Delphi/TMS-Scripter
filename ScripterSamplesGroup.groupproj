@@ -9,7 +9,7 @@
         <Projects Include="Samples\ShippingCalculator\ScripterShippingCalculator.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Samples\BusinessRules\ScripterBusinessRules.dproj">
+        <Projects Include="Samples\BusinessRules\ScripterDiscountRules.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Samples\CustomReports\ScripterCustomReports.dproj">
@@ -41,14 +41,14 @@
     <Target Name="ScripterShippingCalculator:Make">
         <MSBuild Projects="Samples\ShippingCalculator\ScripterShippingCalculator.dproj" Targets="Make"/>
     </Target>
-    <Target Name="ScripterBusinessRules">
-        <MSBuild Projects="Samples\BusinessRules\ScripterBusinessRules.dproj"/>
+    <Target Name="ScripterDiscountRules">
+        <MSBuild Projects="Samples\BusinessRules\ScripterDiscountRules.dproj"/>
     </Target>
-    <Target Name="ScripterBusinessRules:Clean">
-        <MSBuild Projects="Samples\BusinessRules\ScripterBusinessRules.dproj" Targets="Clean"/>
+    <Target Name="ScripterDiscountRules:Clean">
+        <MSBuild Projects="Samples\BusinessRules\ScripterDiscountRules.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="ScripterBusinessRules:Make">
-        <MSBuild Projects="Samples\BusinessRules\ScripterBusinessRules.dproj" Targets="Make"/>
+    <Target Name="ScripterDiscountRules:Make">
+        <MSBuild Projects="Samples\BusinessRules\ScripterDiscountRules.dproj" Targets="Make"/>
     </Target>
     <Target Name="ScripterCustomReports">
         <MSBuild Projects="Samples\CustomReports\ScripterCustomReports.dproj"/>
@@ -60,13 +60,13 @@
         <MSBuild Projects="Samples\CustomReports\ScripterCustomReports.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="ScripterSimple;ScripterShippingCalculator;ScripterBusinessRules;ScripterCustomReports"/>
+        <CallTarget Targets="ScripterSimple;ScripterShippingCalculator;ScripterDiscountRules;ScripterCustomReports"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="ScripterSimple:Clean;ScripterShippingCalculator:Clean;ScripterBusinessRules:Clean;ScripterCustomReports:Clean"/>
+        <CallTarget Targets="ScripterSimple:Clean;ScripterShippingCalculator:Clean;ScripterDiscountRules:Clean;ScripterCustomReports:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="ScripterSimple:Make;ScripterShippingCalculator:Make;ScripterBusinessRules:Make;ScripterCustomReports:Make"/>
+        <CallTarget Targets="ScripterSimple:Make;ScripterShippingCalculator:Make;ScripterDiscountRules:Make;ScripterCustomReports:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

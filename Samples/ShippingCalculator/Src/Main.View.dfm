@@ -87,7 +87,6 @@ object MainView: TMainView
     Caption = ' Script Pascal '
     Padding.Top = 18
     TabOrder = 1
-    ExplicitTop = 84
     object IDEMemo1: TIDEMemo
       Left = 2
       Top = 37

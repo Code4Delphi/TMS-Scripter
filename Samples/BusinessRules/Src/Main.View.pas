@@ -25,7 +25,7 @@ uses
   ap_Graphics,
   ap_Dialogs,
   ap_StdCtrls,
-  BusinessRules.Calculator;
+  Calculator;
 
 type
   TMainView = class(TForm)
@@ -201,7 +201,7 @@ begin
   if not TryStrToInt(Trim(edtQuantidadeItens.Text), Result.ItemCount) then
     raise EArgumentException.Create('Informe uma quantidade inteira maior que zero.');
   Result.IsVIP := ckClienteVIP.Checked;
-  TBusinessRulesCalculator.ValidateOrder(Result);
+  TCalculator.ValidateOrder(Result);
   Result.Value := RoundTo(Result.Value, -2);
 end;
 
@@ -234,7 +234,7 @@ begin
   Self.ClearResults;
   try
     var LOrder := Self.ReadOrder;
-    var LResult := TBusinessRulesCalculator.Calculate(IDEScripter1, memoScript.Lines, LOrder);
+    var LResult := TCalculator.Calculate(IDEScripter1, memoScript.Lines, LOrder);
     edtPercentual.Text := FormatFloat('0.##', LResult.Percent, FFormatSettings) + '%';
     edtDesconto.Text := 'R$ ' + FormatFloat('#,##0.00', LResult.Discount, FFormatSettings);
     edtTotal.Text := 'R$ ' + FormatFloat('#,##0.00', LResult.Total, FFormatSettings);
@@ -268,6 +268,7 @@ procedure TMainView.cBoxExemplosChange(Sender: TObject);
 begin
   if FUpdating then
     Exit;
+
   var LIndex := cBoxExemplos.ItemIndex;
   try
     if Self.ConfirmDiscard then
@@ -318,7 +319,7 @@ begin
     LRuleFile.Script.SourceCode.Assign(memoScript.Lines);
     var LTestFile := IDEEngine1.NewUnit(slPascal, False);
     LTestFile.UnitName := 'TestePedido';
-    LTestFile.Script.SourceCode.Text := TBusinessRulesCalculator.DebugSource(LOrder);
+    LTestFile.Script.SourceCode.Text := TCalculator.DebugSource(LOrder);
     IDEEngine1.MainUnit := LTestFile;
     IDEEngine1.ActiveFile := LRuleFile;
 
