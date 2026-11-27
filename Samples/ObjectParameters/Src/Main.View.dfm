@@ -6,8 +6,8 @@ object MainView: TMainView
   Margins.Right = 0
   Margins.Bottom = 0
   Caption = 'TMS Scripter - Objeto como par'#226'metro'
-  ClientHeight = 476
-  ClientWidth = 733
+  ClientHeight = 594
+  ClientWidth = 798
   Color = clBtnFace
   Constraints.MinHeight = 420
   Constraints.MinWidth = 700
@@ -17,14 +17,14 @@ object MainView: TMainView
   Font.Name = 'Segoe UI'
   Font.Style = []
   KeyPreview = True
-  OnCreate = FormCreate
   Position = poScreenCenter
+  OnCreate = FormCreate
   TextHeight = 17
   object pnCliente: TPanel
     Left = 0
     Top = 0
-    Width = 733
-    Height = 81
+    Width = 798
+    Height = 137
     Margins.Left = 0
     Margins.Top = 0
     Margins.Right = 0
@@ -33,16 +33,16 @@ object MainView: TMainView
     BevelOuter = bvNone
     TabOrder = 0
     object lbTypeClient: TLabel
-      Left = 16
-      Top = 17
+      Left = 357
+      Top = 24
       Width = 86
       Height = 17
       Caption = 'Tipo de cliente'
       FocusControl = cBoxTypeClient
     end
     object lbDiscount: TLabel
-      Left = 352
-      Top = 17
+      Left = 176
+      Top = 81
       Width = 78
       Height = 17
       Hint = 'Percentual retornado pelo script'
@@ -51,24 +51,37 @@ object MainView: TMainView
       ParentShowHint = False
       ShowHint = True
     end
-    object cBoxTypeClient: TComboBox
+    object Label1: TLabel
       Left = 16
-      Top = 36
+      Top = 25
+      Width = 11
+      Height = 17
+      Caption = 'Id'
+    end
+    object Label2: TLabel
+      Left = 104
+      Top = 25
+      Width = 35
+      Height = 17
+      Caption = 'Name'
+    end
+    object cBoxTypeClient: TComboBox
+      Left = 357
+      Top = 43
       Width = 160
       Height = 25
       Style = csDropDownList
       ItemIndex = 0
       TabOrder = 0
       Text = 'Normal'
-      OnChange = InputChange
       Items.Strings = (
         'Normal'
         'Vip'
         'Premium')
     end
     object btnCalculateDiscount: TButton
-      Left = 192
-      Top = 34
+      Left = 16
+      Top = 98
       Width = 144
       Height = 29
       Caption = 'Calcular desconto'
@@ -76,29 +89,48 @@ object MainView: TMainView
       OnClick = btnCalculateDiscountClick
     end
     object edtDiscount: TEdit
-      Left = 352
-      Top = 36
-      Width = 160
+      Left = 176
+      Top = 100
+      Width = 177
       Height = 25
       Color = clBtnFace
       ReadOnly = True
       TabOrder = 2
     end
+    object edtId: TEdit
+      Left = 16
+      Top = 43
+      Width = 84
+      Height = 25
+      NumbersOnly = True
+      TabOrder = 3
+      Text = '10'
+    end
+    object edtName: TEdit
+      Left = 104
+      Top = 43
+      Width = 249
+      Height = 25
+      TabOrder = 4
+      Text = 'Cesar Cardoso'
+    end
   end
   object gBoxScript: TGroupBox
     Left = 0
-    Top = 81
-    Width = 733
-    Height = 395
+    Top = 137
+    Width = 798
+    Height = 457
     Align = alClient
     Caption = ' Script Pascal '
     Padding.Top = 18
     TabOrder = 1
+    ExplicitTop = 81
+    ExplicitHeight = 479
     object IDEMemo1: TIDEMemo
       Left = 2
       Top = 37
-      Width = 729
-      Height = 356
+      Width = 794
+      Height = 418
       Cursor = crIBeam
       ActiveLineSettings.ShowActiveLine = False
       ActiveLineSettings.ShowActiveLineIndicator = False
@@ -181,6 +213,9 @@ object MainView: TMainView
       HiddenCaret = False
       Lines.Strings = (
         'function GetDiscount(AClient);'
+        'var'
+        '  LId: Integer;'
+        '  LName: string;'
         'begin'
         '  Result := 0;'
         ''
@@ -190,7 +225,13 @@ object MainView: TMainView
         '    Result := 20'
         '  else if AClient.TypeClient = '#39'Premium'#39' then'
         '    Result := 30;'
-        'end;')
+        ''
+        '  LId := AClient.Id;'
+        '  LName := AClient.Name;'
+        
+          '  ShowMessage(Format('#39'%d - %s : %d percent off'#39', [LId, LName, Re' +
+          'sult]));'
+        'end; ')
       MarkerList.UseDefaultMarkerImageIndex = False
       MarkerList.DefaultMarkerImageIndex = -1
       MarkerList.ImageTransparentColor = 33554432
@@ -225,22 +266,20 @@ object MainView: TMainView
       UseStyler = True
       Version = '3.9.3.0'
       WordWrap = wwNone
-      OnChange = InputChange
+      ExplicitLeft = 3
     end
   end
   object IDEScripter1: TIDEScripter
     DefaultLanguage = slPascal
     SaveCompiledCode = False
-    OnCompileError = IDEScripter1CompileError
-    OnRuntimeError = IDEScripter1CompileError
     ShortBooleanEval = True
     LibOptions.SearchPath.Strings = (
       '$(CURDIR)'
       '$(APPDIR)')
     LibOptions.UseScriptFiles = False
     CallExecHookEvent = False
-    Left = 572
-    Top = 24
+    Left = 596
+    Top = 128
   end
   object ScrPascalMemoStyler1: TScrPascalMemoStyler
     AutoBlockEnd = True
@@ -514,7 +553,7 @@ object MainView: TMainView
         RegionType = rtClosed
         ShowComments = False
       end>
-    Left = 568
-    Top = 100
+    Left = 592
+    Top = 204
   end
 end
