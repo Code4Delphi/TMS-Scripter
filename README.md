@@ -44,7 +44,7 @@ Suporte para uso multiplataforma: **Win32**, **Win64**, **macOS**, **iOS** and *
 
 ## Vídeos de demonstração
 - [TMS Scripter #01: Execute Scripts Dentro do seu Sistema Delphi e Reprograme sem Recompilar](https://www.youtube.com/watch?v=uRqc9_hjzn4&list=PLJMTALPbC9oA)
-- [TMS Scripter #01: Execute Scripts Dentro do seu Sistema Delphi e Reprograme sem Recompilar](https://www.youtube.com/watch?v=uRqc9_hjzn4&list=PLJMTALPbC9oA)
+- [TMS Scripter #02: Parâmetros, Retornos e Acesso a Componentes e Funções Delphi](https://www.youtube.com/watch?v=X0P-4joUEx4&list=PLJMTALPbC9oA)
 
 ## Screenshots
 
